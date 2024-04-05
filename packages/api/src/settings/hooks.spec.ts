@@ -16,7 +16,7 @@ describe('Settings', () => {
       expect(result.current.data).toEqual(defaultItems[0]);
     });
     test('useModifySettings', async () => {
-      const { result } = renderHook(() => useModifySettings(defaultItems[0].id), {
+      const { result } = renderHook(() => useModifySettings(), {
         wrapper: QueryProvider,
       });
       const { result: get } = renderHook(() => useSettings(defaultItems[0].id), {
