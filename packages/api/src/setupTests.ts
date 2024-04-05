@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom/vitest';
 
-import queryClientTest from '../test/queryClientTest';
 import { db as settingsDB } from '@react-query-example/api/settings/mock';
 import { server } from '@react-query-example/api/mocks/server';
+import queryClientTest from '../test/queryClientTest';
 
 // Establish API mocking before all tests.
 beforeAll(() =>

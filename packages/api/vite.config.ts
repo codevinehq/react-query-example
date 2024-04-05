@@ -15,13 +15,15 @@ export default defineConfig({
 
   test: {
     globals: true,
-    cache: { dir: '../../node_modules/.vitest' },
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     reporters: ['default'],
+    setupFiles: ['src/setupTests.ts'],
     coverage: {
       reportsDirectory: '../../coverage/packages/api',
       provider: 'v8',
+      include: ['src'],
+      exclude: ['src/mocks', '**/*.spec.*', 'setupTests.ts', 'src/mock-db.ts', 'src/main.tsx', '**/mock.ts'],
     },
   },
 });
