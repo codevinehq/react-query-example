@@ -15,9 +15,7 @@ const Form = () => {
 
           modifySettings.mutate({
             companyId: '1',
-            settings: {
-              name: formData.get('name') as string,
-            },
+            settings: { name: formData.get('name') as string },
           });
         }}
       >

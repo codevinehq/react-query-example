@@ -2,23 +2,18 @@ import { getSettings, updateSettings } from '.';
 import { db, defaultItems } from './mock';
 
 describe('Settings', () => {
-  describe('api', () => {
-    test('getSettings', async () => {
-      expect(await getSettings(defaultItems[0].id)).toEqual(defaultItems[0]);
-    });
+  test('api - getSettings', async () => {
+    expect(await getSettings(defaultItems[0].id)).toEqual(defaultItems[0]);
+  });
 
-    test('updateSettings', async () => {
-      const newSettings = {
-        id: '2',
-        name: 'Bob',
-      };
+  test('api - updateSettings', async () => {
+    const newSettings = {
+      ...defaultItems[0],
+      name: 'Frank',
+    };
 
-      await updateSettings({
-        companyId: '2',
-        settings: newSettings,
-      });
+    await updateSettings({ companyId: defaultItems[0].id, settings: newSettings });
 
-      expect(db.findOne('2')).toEqual(newSettings);
-    });
+    expect(db.findOne(defaultItems[0].id)).toEqual(newSettings);
   });
 });

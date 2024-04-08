@@ -18,9 +18,7 @@ export const updateSettings = async ({ companyId, settings }: { companyId: strin
   const body = await UpdateSettingsSchema.parse(settings);
   await fetch(`/api/v1/settings/${companyId}`, {
     method: 'put',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   });
 };
